@@ -14,18 +14,18 @@ import Product from '@modules/products/infra/typeorm/entities/Product';
 @Entity('orders_products')
 class OrdersProducts {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @ManyToOne(() => Order)
   @JoinColumn({ name: 'order_id' })
-  order: Order;
+  order?: Order;
 
   @ManyToOne(() => Product)
   @JoinColumn({ name: 'product_id' })
-  product: Product;
+  product?: Product;
 
   @Column()
-  order_id: string;
+  order_id?: string;
 
   @Column()
   product_id: string;
@@ -37,10 +37,10 @@ class OrdersProducts {
   quantity: number;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at?: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at?: Date;
 }
 
 export default OrdersProducts;
